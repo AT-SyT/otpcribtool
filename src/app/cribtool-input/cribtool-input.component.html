@@ -1,0 +1,50 @@
+<div class="container" width="800px">
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="addCipher(cipherInput)" #cipherInputForm="ngForm">
+        <div class="form-group">
+          <label>Input Cipher in HEX here:</label>
+          <input type="text" class="form-control" [(ngModel)]="cipherInput" name="cipherInput" id="cipherInput"
+                 required>
+        </div>
+        <button type="submit" class="btn btn-default">Add Cipher</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <form (ngSubmit)="setKey(keyInput)" #keyInputForm="ngForm">
+        <div class="form-group">
+          <label>Input Key in HEX if known</label>
+          <input type="text" class="form-control" [(ngModel)]="keyInput" name="keyInput" id="keyInput" required>
+        </div>
+        <button type="submit" class="btn btn-default">Set Key</button>
+      </form>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <a routerLink="/crib" class="btn btn-primary" routerLinkActive="active">Confirm Data</a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="well">
+        <label>Key: </label>
+        <span>'{{ key }}'</span>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 ">
+      <ul>
+        <li *ngFor="let cipher of ciphers; let i = index;">
+          <button class="btn btn-default btn-xs" (click)="removeCipher(i)">-</button>
+          <label>Cipher #{{ i+1}}: </label>
+          <span>{{ cipher }}</span>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</div>

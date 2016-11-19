@@ -1,0 +1,6 @@
+<!--<textarea rows="1" cols="1" maxlength="1" *ngFor="let char of cipherChars; let i=index" (change)="test(i)"></textarea>
+-->
+
+<div>
+<cipher-grid-element *ngFor="let char of cipherChars; let i = index;" [index]="i" [char] ="char" (onChange)="charChanged($event)"></cipher-grid-element>
+</div>

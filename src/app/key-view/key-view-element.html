@@ -1,0 +1,3 @@
+<textarea  rows="1" cols="1" maxlength="1" [(ngModel)]="char"
+          (change)="valueChanged(index, char)"></textarea>
+<input type="checkbox" [(ngModel)]="lock" (change)="lockChanged(index, $event.target.checked)">

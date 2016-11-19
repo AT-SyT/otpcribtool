@@ -1,0 +1,26 @@
+<div class="container" width="800px">
+  <div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-primary" (click)="attack()">Start Attack</button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+      <label>KEY: </label></div>
+    <div class="col-md-11">
+      <div class="well">
+        <key-view [key]="key" [keyLock]="keyLock" (onKeyChange)="onKeyChange($event)"></key-view>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+  </div>
+  <div class="col-md-1">
+    <label>Ciphers</label>
+  </div>
+  <div class="col-md-11">
+    <div class="well">
+      <cipher-grid *ngFor="let cipher of ciphers" [cipherText]="cipher" (onChange)="onCipherChange($event)"></cipher-grid>
+    </div>
+  </div>
+</div>
