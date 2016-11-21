@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {HelperService} from './helpers.service';
 
 @Component({
   selector   : 'app-root',
@@ -8,19 +7,11 @@ import {HelperService} from './helpers.service';
 })
 export class AppComponent {
   title = 'Cribtool';
-  ciphers: String[] = [];
-  maxlen: number = 0;
-  cipherInput: String = '';
-  keyInput: String = '4547';
   key: String[] = [];
-  keyLock: boolean[] =[];
-  originalKey: String[] =[];
+  keyLock: boolean[] = [];
 
-  constructor(private helperService: HelperService) {
-    console.log(helperService.hex2a(''));
+  constructor() {
   }
-
-
 
 
 }

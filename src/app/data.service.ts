@@ -1,28 +1,40 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import * as _ from 'lodash';
+import {HelperService} from './helpers.service';
 @Injectable()
 export class DataService {
-  key: String ='EEFFGG';
-  cipherTexts : String[] =['EEG','SAGR','FFHTG'];
+  key: String = this.helperService.hex2a('70534E7175754F4A7A72654F6776554675667266644F4D674E485751414271507564484F787761794E476E766268617650556353494F5A5859784F795A476F564A786C4A766C684C52576775474A72766675504E4B714B494F61687047586B5357000059');
+  cipherTexts: String[] = [
+    this.helperService.hex2a('133B2F1F12103C645A3F0A3D0256262F12081B000D2C2C093A647721243019310517646F1104410D26261A56111D1300353C0F3F2821393D7919211D7A3307336A11013A170F1C6C3D31470122291A1809193F2922122A256F020011293F0E733F391779'),
+    this.helperService.hex2a('183A3D51181022251300166F050321661D0701460A20394723293334612F04331D44383D1710131C3D34405636000404357502212C6F3B2C79142A1829334F22220A092F560E07233924471425250702461D39236B1E25693B090D503039126877390A79'),
+    this.helperService.hex2a('073A221D55172A6A0A00003B130F752519031314443B25063A68233928315127141668201657161127341A1A070A0D1927301120692B353D2A5821162E671C33380E096A02040D6C3B391310352F010215553F286B05232C6F340619333D0F59'),
+    this.helperService.hex2a('043B271F12596F035A1000230E1323235511174617272212222C772235231F345511386F191905593D26175611070C13243D0A3D2E6F3B3A360D3B59333341766835156A061E0123203E130C672B1E01070C236E231038693B0E48122278062A5D')
+  ];
 
-  constructor() { }
-
-  setKey(key: String){
-    this.key=key;
+  constructor(private helperService : HelperService) {
   }
-  getKey() :String{
+
+  setKey(key: String) {
+    this.key = key;
+  }
+
+  getKey(): String {
     return _.clone(this.key);
   }
-  setCipherTexts(ciphers: String[]){
-    this.cipherTexts=ciphers;
+
+  setCipherTexts(ciphers: String[]) {
+    this.cipherTexts = ciphers;
   }
-  addCipherText(cipher: String){
+
+  addCipherText(cipher: String) {
     this.cipherTexts.push(cipher);
   }
-  removeCipherText(index:number){
+
+  removeCipherText(index: number) {
     this.cipherTexts.splice(index, 1);
   }
-  getCiphers() :String[]{
+
+  getCiphers(): String[] {
     return this.cipherTexts;
   }
 

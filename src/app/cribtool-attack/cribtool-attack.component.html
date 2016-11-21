@@ -1,26 +1,37 @@
-<div class="container" width="800px">
+<div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
       <button class="btn btn-primary" (click)="attack()">Start Attack</button>
     </div>
   </div>
+
   <div class="row">
     <div class="col-md-1">
-      <label>KEY: </label></div>
-    <div class="col-md-11">
-      <div class="well">
-        <key-view [key]="key" [keyLock]="keyLock" (onKeyChange)="onKeyChange($event)"></key-view>
+      <div class="row">
+        <label>KEY: </label>
+      </div>
+      <div class="row">
+        <label>Ciphers</label>
       </div>
     </div>
-  </div>
-  <div class="row">
-  </div>
-  <div class="col-md-1">
-    <label>Ciphers</label>
-  </div>
-  <div class="col-md-11">
-    <div class="well">
-      <cipher-grid *ngFor="let cipher of ciphers" [cipherText]="cipher" (onChange)="onCipherChange($event)"></cipher-grid>
+    <div class="col-md-11">
+      <div class="well" style="overflow-x: scroll; overflow-y: scroll; white-space: nowrap; width: 100%;">
+        <div class="row">
+          <div class="col-md-12">
+            <div>
+              <key-view [key]="key" [keyLock]="keyLock" (onKeyChange)="onKeyChange($event)"></key-view>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-top: 50px;">
+          <div class="col-md-12">
+            <div style="display: block;">
+              <cipher-grid *ngFor="let cipher of ciphers" [cipherText]="cipher"
+                           (onChange)="onCipherChange($event)"></cipher-grid>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

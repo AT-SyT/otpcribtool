@@ -1,3 +1,6 @@
-<div style="display: inline-block" *ngFor="let char of key; let i=index;">
-  <key-view-element [index]="i" [char]="char" [lock]="keyLock[i]" (onChange)="onChange($event)" (onLockChange)="onLockChange($event)"></key-view-element>
-</div>
+<!--<div style="overflow-x: scroll; overflow-y: hidden; white-space: nowrap; width: 100%;">-->
+  <div style="display: inline-block; padding: 1px 1px;" *ngFor="let char of key; let i=index;">
+    <key-view-element [index]="i" [char]="char" [lock]="keyLock[i]" (onChange)="onChange($event)"
+                      (onLockChange)="onLockChange($event)"></key-view-element>
+  </div>
+<!--</div>-->
