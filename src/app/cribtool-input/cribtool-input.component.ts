@@ -10,10 +10,10 @@ import {DataService} from '../data.service';
 export class CribtoolInputComponent implements OnInit {
 
   title = 'Cribtool';
-  ciphers: String[] = ['E', 'F'];
-  cipherInput: String = '';
-  keyInput: String = '45475349';
-  key: String = '';
+  ciphers: string[] = ['E', 'F'];
+  cipherInput: string = '';
+  keyInput: string = '45475349';
+  key: string = '';
 
   constructor(private helperService: HelperService, private dataService: DataService) {
   }
@@ -21,7 +21,7 @@ export class CribtoolInputComponent implements OnInit {
   ngOnInit() {
   }
 
-  addCipher(value: String) {
+  addCipher(value: string) {
     console.log(value);
     let cipherText = this.helperService.hex2a(value);
     this.ciphers.push(cipherText);
@@ -35,7 +35,7 @@ export class CribtoolInputComponent implements OnInit {
     this.ciphers.splice(index, 1);
   }
 
-  setKey(value: String) {
+  setKey(value: string) {
 
     this.key = this.helperService.hex2a(value);
     this.dataService.setKey(this.key);

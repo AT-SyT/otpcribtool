@@ -3,7 +3,8 @@ import {Output} from '@angular/core/src/metadata/directives';
 import {IonLockChange, IonChange} from './key-view-element';
 
 export interface IonKeyChange {
-  value: String[];
+  index: number
+  value: string;
 }
 
 @Component({
@@ -13,7 +14,7 @@ export interface IonKeyChange {
 })
 export class KeyViewComponent implements OnInit {
 
-  @Input() key: String[];
+  @Input() key: string[];
   @Input() keyLock : boolean[];
   @Output() onKeyChange: EventEmitter<IonKeyChange> = new EventEmitter();
   constructor() { }
@@ -25,8 +26,7 @@ export class KeyViewComponent implements OnInit {
 
   onChange(event : IonChange){
     console.log('Changed: Index:',event.index,'value: ', event.value);
-    this.key[event.index]=event.value;
-    this.onKeyChange.emit({value: this.key});
+    this.onKeyChange.emit({index: event.index, value: event.value});
   }
 
 

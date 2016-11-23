@@ -4,7 +4,7 @@ import {Output} from '@angular/core/src/metadata/directives';
 
 export interface IonChange{
   index: number;
-  value: String;
+  value: string;
 }
 export interface IonLockChange {
   index: number;
@@ -22,7 +22,7 @@ export interface IonLockChange {
   ]
 })
 export class KeyViewElementComponent implements OnInit {
-  @Input() char: String;
+  @Input() char: string;
   @Input() lock: boolean;
   @Input() index: number;
   @Output() onChange: EventEmitter<IonChange> = new EventEmitter();
@@ -35,7 +35,15 @@ export class KeyViewElementComponent implements OnInit {
   ngOnInit() {
   }
 
-  valueChanged(index: number, char: String) {
+  getBackgroundColor(){
+    if(this.char === ''){
+      return 'red';
+    }else{
+      return '';
+    }
+  }
+
+  valueChanged(index: number, char: string) {
     this.onChange.emit({index: index, value: char});
   }
 

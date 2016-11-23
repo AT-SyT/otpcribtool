@@ -26,7 +26,7 @@
         <div class="row" style="margin-top: 50px;">
           <div class="col-md-12">
             <div style="display: block;">
-              <cipher-grid *ngFor="let cipher of ciphers" [cipherText]="cipher"
+              <cipher-grid *ngFor="let cipher of plains; let i = index" [index]="i" [cipherText]="cipher"
                            (onChange)="onCipherChange($event)"></cipher-grid>
             </div>
           </div>
